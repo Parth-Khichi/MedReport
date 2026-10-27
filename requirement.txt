@@ -1,0 +1,6 @@
+Flask
+Werkzeug
+PyMuPDF
+Pillow
+pytesseract
+reportlab

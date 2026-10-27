@@ -1,0 +1,284 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Symptom Matching</h1>
+
+<p class="subtitle">
+
+    Describe the symptoms you are experiencing.
+    The system will compare your words with the
+    symptom dataset using exact and similar matching.
+
+</p>
+
+
+<form
+    method="POST"
+    class="form-card"
+>
+
+    <label>
+        What symptoms are you feeling?
+    </label>
+
+    <textarea
+        name="symptoms"
+        rows="6"
+        placeholder="Example:
+
+I have fever, headache and cough.
+I have been feeling tired and have body pain."
+        required
+    ></textarea>
+
+
+    <label>
+        How many days have you had these symptoms?
+    </label>
+
+    <input
+        type="text"
+        name="duration"
+        placeholder="Example: 3 days"
+    >
+
+
+    <label>
+        How severe are the symptoms?
+    </label>
+
+    <select name="severity">
+
+        <option value="">
+            Select severity
+        </option>
+
+        <option value="Mild">
+            Mild
+        </option>
+
+        <option value="Moderate">
+            Moderate
+        </option>
+
+        <option value="Severe">
+            Severe
+        </option>
+
+    </select>
+
+
+    <label>
+        Age
+    </label>
+
+    <input
+        type="number"
+        name="age"
+        min="0"
+        max="120"
+        placeholder="Age"
+    >
+
+
+    <label>
+        Sex
+    </label>
+
+    <select name="sex">
+
+        <option value="">
+            Prefer not to say
+        </option>
+
+        <option value="Male">
+            Male
+        </option>
+
+        <option value="Female">
+            Female
+        </option>
+
+        <option value="Other">
+            Other
+        </option>
+
+    </select>
+
+
+    <label>
+        Medical History
+    </label>
+
+    <textarea
+        name="medical_history"
+        rows="4"
+        placeholder="Example: diabetes, asthma, previous surgery..."
+    ></textarea>
+
+
+    <label>
+        Current Medications
+    </label>
+
+    <textarea
+        name="medications"
+        rows="3"
+        placeholder="List any medicines you currently take."
+    ></textarea>
+
+
+    <label>
+        Allergies
+    </label>
+
+    <textarea
+        name="allergies"
+        rows="3"
+        placeholder="List any known allergies."
+    ></textarea>
+
+
+    <label>
+        Additional Information
+    </label>
+
+    <textarea
+        name="additional_information"
+        rows="4"
+        placeholder="Anything else you think is important."
+    ></textarea>
+
+
+    <button type="submit">
+        Match Symptoms
+    </button>
+
+</form>
+
+
+{% if diagnosis %}
+
+<div class="result-card">
+
+    <h2>Symptom Matching Results</h2>
+
+    <p>
+        <strong>Your symptoms:</strong>
+        {{ diagnosis.symptoms }}
+    </p>
+
+    <p>
+        <strong>Duration:</strong>
+        {{ diagnosis.duration or "Not provided" }}
+    </p>
+
+    <p>
+        <strong>Severity:</strong>
+        {{ diagnosis.severity or "Not provided" }}
+    </p>
+
+</div>
+
+{% endif %}
+
+
+{% if results %}
+
+<h2>Possible Condition Matches</h2>
+
+<p>
+    These are matches from the symptom dataset,
+    not confirmed diagnoses.
+</p>
+
+
+<div class="results">
+
+    {% for result in results %}
+
+    <div class="result-card">
+
+        <h3>
+            {{ result.condition }}
+        </h3>
+
+        <p>
+            <strong>
+                Matching symptoms:
+            </strong>
+        </p>
+
+        <div>
+
+            {% for symptom in result.matched %}
+
+            <span class="tag">
+                {{ symptom }}
+            </span>
+
+            {% endfor %}
+
+        </div>
+
+        <p>
+            Match score:
+            <strong>
+                {{ result.score }}
+            </strong>
+        </p>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+
+{% elif diagnosis %}
+
+<div class="result-card">
+
+    <h3>
+        No strong symptom matches found
+    </h3>
+
+    <p>
+        Try describing your symptoms using more
+        specific words or phrases.
+    </p>
+
+</div>
+
+{% endif %}
+
+
+{% if diagnosis %}
+
+<a
+    class="download-button"
+    href="{{ url_for(
+        'download_diagnosis',
+        diagnosis_id=diagnosis.id
+    ) }}"
+>
+    Download Symptom Matching Report
+</a>
+
+{% endif %}
+
+
+<div class="warning">
+
+    <strong>Medical Disclaimer:</strong>
+
+    The conditions displayed are possible matches
+    based on symptom words in the software dataset.
+    They are not medical diagnoses. A healthcare
+    professional should evaluate persistent, severe,
+    or concerning symptoms.
+
+</div>
+
+{% endblock %}

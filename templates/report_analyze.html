@@ -1,0 +1,409 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-header">
+
+    <h1>📄 Medical Report Analysis</h1>
+
+    <p class="subtitle">
+        Upload your medical report to extract and review
+        laboratory information.
+    </p>
+
+</div>
+
+
+<!-- =====================================================
+     UPLOAD FORM
+===================================================== -->
+
+<div class="form-card">
+
+    <form
+        method="POST"
+        enctype="multipart/form-data"
+    >
+
+        <label for="report_name">
+            Report Name
+        </label>
+
+        <input
+            type="text"
+            id="report_name"
+            name="report_name"
+            placeholder="Example: Blood Test Report"
+            required
+        >
+
+
+        <label for="report_file">
+            Upload Medical Report
+        </label>
+
+        <input
+            type="file"
+            id="report_file"
+            name="report_file"
+            accept=".pdf,.png,.jpg,.jpeg"
+            required
+        >
+
+        <small>
+            Supported formats: PDF, JPG, JPEG and PNG.
+        </small>
+
+
+        <button type="submit">
+            📤 Upload & Analyse
+        </button>
+
+    </form>
+
+</div>
+
+
+<!-- =====================================================
+     ANALYSIS RESULT
+===================================================== -->
+
+{% if report and analysis %}
+
+<div class="result-card">
+
+    <h2>📋 Analysis Result</h2>
+
+
+    <!-- REPORT INFORMATION -->
+
+    <div class="report-info">
+
+        <p>
+            <strong>Report:</strong>
+            {{ report["report_name"] }}
+        </p>
+
+        <p>
+            <strong>Original File:</strong>
+            {{ report["original_filename"] }}
+        </p>
+
+        <p>
+            <strong>Date:</strong>
+            {{ report["created_at"] }}
+        </p>
+
+    </div>
+
+
+    <!-- SUMMARY -->
+
+    <div class="analysis-section">
+
+        <h3>📊 Analysis Summary</h3>
+
+        <p>
+            {{ analysis["summary"] }}
+        </p>
+
+    </div>
+
+
+    <!-- SUMMARY COUNTERS -->
+
+    {% if analysis["values"] %}
+
+    <div class="summary-cards">
+
+        <div class="summary-card normal-card">
+
+            <strong>
+                {{ analysis["normal_count"] }}
+            </strong>
+
+            <span>
+                Normal
+            </span>
+
+        </div>
+
+
+        <div class="summary-card low-card">
+
+            <strong>
+                {{ analysis["low_count"] }}
+            </strong>
+
+            <span>
+                Low
+            </span>
+
+        </div>
+
+
+        <div class="summary-card high-card">
+
+            <strong>
+                {{ analysis["high_count"] }}
+            </strong>
+
+            <span>
+                High
+            </span>
+
+        </div>
+
+    </div>
+
+    {% endif %}
+
+
+    <!-- LABORATORY VALUES -->
+
+    <div class="analysis-section">
+
+        <h3>🧪 Detected Laboratory Values</h3>
+
+        {% if analysis["values"] %}
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Test
+                        </th>
+
+                        <th>
+                            Result
+                        </th>
+
+                        <th>
+                            Reference Range
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            What It Means
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for item in analysis["values"] %}
+
+                    <tr>
+
+                        <td>
+                            {{ item["name"] }}
+                        </td>
+
+
+                        <td>
+
+                            <strong>
+                                {{ item["value"] }}
+                                {{ item["unit"] }}
+                            </strong>
+
+                        </td>
+
+
+                        <td>
+
+                            {{ item["reference_low"] }}
+
+                            -
+
+                            {{ item["reference_high"] }}
+
+                            {{ item["unit"] }}
+
+                        </td>
+
+
+                        <td>
+
+                            {% if item["status"] == "Normal" %}
+
+                                <span class="status normal">
+                                    ✓ Normal
+                                </span>
+
+                            {% elif item["status"] == "Low" %}
+
+                                <span class="status low">
+                                    ↓ Low
+                                </span>
+
+                            {% elif item["status"] == "High" %}
+
+                                <span class="status high">
+                                    ↑ High
+                                </span>
+
+                            {% endif %}
+
+                        </td>
+
+
+                        <td>
+                            {{ item["explanation"] }}
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        {% else %}
+
+        <p class="no-data">
+
+            No supported laboratory values were confidently
+            detected in this report.
+
+        </p>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- =================================================
+         WHAT SHOULD YOU DO?
+    ================================================== -->
+
+    {% if analysis["recommendations"] %}
+
+    <div class="recommendation-card">
+
+        <h3>🩺 What Should You Do?</h3>
+
+        <ul>
+
+            {% for recommendation in analysis["recommendations"] %}
+
+            <li>
+                {{ recommendation }}
+            </li>
+
+            {% endfor %}
+
+        </ul>
+
+    </div>
+
+    {% endif %}
+
+
+    <!-- =================================================
+         EXTRACTED TEXT
+    ================================================== -->
+
+    {% if extracted_text %}
+
+    <div class="analysis-section">
+
+        <h3>
+            📄 Extracted Report Text
+        </h3>
+
+        <div class="extracted-text">
+
+            {{ extracted_text }}
+
+        </div>
+
+    </div>
+
+    {% endif %}
+
+
+    <!-- =================================================
+         DOWNLOAD
+    ================================================== -->
+
+    <div class="download-section">
+
+        <a
+            href="{{ url_for(
+                'download_report',
+                report_id=report['id']
+            ) }}"
+            class="download-button"
+        >
+            ⬇ Download Report
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MEDICAL DISCLAIMER
+===================================================== -->
+
+<div class="warning">
+
+    <strong>Important:</strong>
+
+    This analysis is for educational and
+    decision-support purposes only.
+
+    It does not provide a medical diagnosis
+    and should not replace advice from a
+    qualified healthcare professional.
+
+</div>
+
+
+{% endif %}
+
+
+<!-- =====================================================
+     INFORMATION
+===================================================== -->
+
+<div class="info-card">
+
+    <h3>ℹ️ How Report Analysis Works</h3>
+
+    <p>
+        The system extracts text from your uploaded
+        medical report and identifies supported
+        laboratory values.
+    </p>
+
+    <p>
+        Results are compared with the reference ranges
+        provided in the report itself.
+    </p>
+
+    <p>
+        Scanned or image-only documents may require OCR
+        to extract their text.
+    </p>
+
+</div>
+
+
+{% endblock %}

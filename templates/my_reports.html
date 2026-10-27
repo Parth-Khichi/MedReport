@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>My Reports</h1>
+
+
+<section>
+
+    <h2>Medical Report Analyses</h2>
+
+
+    {% if reports %}
+
+        {% for report in reports %}
+
+        <div class="history-card">
+
+            <h3>
+                {{ report.report_name }}
+            </h3>
+
+            <p>
+                <strong>Original file:</strong>
+                {{ report.original_filename }}
+            </p>
+
+            <small>
+                {{ report.created_at }}
+            </small>
+
+
+            <div class="history-actions">
+
+                <a
+                    class="download-button"
+                    href="{{ url_for(
+                        'download_report',
+                        report_id=report.id
+                    ) }}"
+                >
+                    Download Analysis + Original
+                </a>
+
+                <a
+                    class="secondary-button"
+                    href="{{ url_for(
+                        'report_result',
+                        report_id=report.id
+                    ) }}"
+                >
+                    View Analysis
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p>
+            No medical reports analyzed yet.
+        </p>
+
+    {% endif %}
+
+</section>
+
+
+<section>
+
+    <h2>Symptom Matching History</h2>
+
+
+    {% if diagnoses %}
+
+        {% for diagnosis in diagnoses %}
+
+        <div class="history-card">
+
+            <h3>
+                Symptom Check
+            </h3>
+
+            <small>
+                {{ diagnosis.created_at }}
+            </small>
+
+            <p>
+                <strong>Symptoms:</strong>
+                {{ diagnosis.symptoms }}
+            </p>
+
+            <p>
+                <strong>Duration:</strong>
+                {{ diagnosis.duration or "Not provided" }}
+            </p>
+
+            <p>
+                <strong>Possible matches:</strong>
+                {{ diagnosis.possible_conditions or "No strong match" }}
+            </p>
+
+
+            <a
+                class="download-button"
+                href="{{ url_for(
+                    'download_diagnosis',
+                    diagnosis_id=diagnosis.id
+                ) }}"
+            >
+                Download Symptom Report
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p>
+            No symptom checks performed yet.
+        </p>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

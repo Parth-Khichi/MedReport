@@ -1,0 +1,310 @@
+condition,symptom
+Common Cold,runny nose
+Common Cold,stuffy nose
+Common Cold,nasal congestion
+Common Cold,sneezing
+Common Cold,sore throat
+Common Cold,cough
+Common Cold,mild fever
+Common Cold,fatigue
+Common Cold,headache
+Common Cold,watery eyes
+
+Influenza,fever
+Influenza,high fever
+Influenza,chills
+Influenza,cough
+Influenza,dry cough
+Influenza,sore throat
+Influenza,headache
+Influenza,body ache
+Influenza,muscle pain
+Influenza,fatigue
+Influenza,weakness
+Influenza,runny nose
+
+Migraine,headache
+Migraine,severe headache
+Migraine,throbbing headache
+Migraine,nausea
+Migraine,vomiting
+Migraine,light sensitivity
+Migraine,sensitivity to light
+Migraine,sound sensitivity
+Migraine,dizziness
+Migraine,visual disturbance
+
+Tension Headache,headache
+Tension Headache,head pressure
+Tension Headache,neck pain
+Tension Headache,neck stiffness
+Tension Headache,scalp tenderness
+Tension Headache,fatigue
+
+Allergic Rhinitis,sneezing
+Allergic Rhinitis,runny nose
+Allergic Rhinitis,stuffy nose
+Allergic Rhinitis,itchy nose
+Allergic Rhinitis,itchy eyes
+Allergic Rhinitis,watery eyes
+Allergic Rhinitis,nasal congestion
+
+Asthma,shortness of breath
+Asthma,breathing difficulty
+Asthma,wheezing
+Asthma,cough
+Asthma,chest tightness
+Asthma,night cough
+Asthma,exercise induced breathing difficulty
+
+Gastritis,stomach pain
+Gastritis,upper abdominal pain
+Gastritis,nausea
+Gastritis,vomiting
+Gastritis,bloating
+Gastritis,indigestion
+Gastritis,loss of appetite
+
+Gastroesophageal Reflux Disease,heartburn
+Gastroesophageal Reflux Disease,acid reflux
+Gastroesophageal Reflux Disease,chest burning
+Gastroesophageal Reflux Disease,sour taste
+Gastroesophageal Reflux Disease,regurgitation
+Gastroesophageal Reflux Disease,difficulty swallowing
+
+Food Poisoning,nausea
+Food Poisoning,vomiting
+Food Poisoning,diarrhea
+Food Poisoning,stomach pain
+Food Poisoning,abdominal cramps
+Food Poisoning,fever
+Food Poisoning,weakness
+
+Dehydration,thirst
+Dehydration,dry mouth
+Dehydration,dizziness
+Dehydration,weakness
+Dehydration,fatigue
+Dehydration,dark urine
+Dehydration,reduced urination
+
+Anemia,fatigue
+Anemia,weakness
+Anemia,dizziness
+Anemia,pale skin
+Anemia,shortness of breath
+Anemia,headache
+Anemia,rapid heartbeat
+Anemia,cold hands
+Anemia,cold feet
+
+Urinary Tract Infection,burning urination
+Urinary Tract Infection,painful urination
+Urinary Tract Infection,frequent urination
+Urinary Tract Infection,urgent urination
+Urinary Tract Infection,lower abdominal pain
+Urinary Tract Infection,cloudy urine
+Urinary Tract Infection,blood in urine
+Urinary Tract Infection,fever
+
+Constipation,difficulty passing stool
+Constipation,hard stool
+Constipation,infrequent bowel movements
+Constipation,abdominal pain
+Constipation,bloating
+Constipation,straining
+Constipation,feeling of incomplete bowel movement
+
+Diarrhea,loose stools
+Diarrhea,watery stools
+Diarrhea,frequent bowel movements
+Diarrhea,abdominal cramps
+Diarrhea,stomach pain
+Diarrhea,nausea
+Diarrhea,dehydration
+
+Sinusitis,facial pain
+Sinusitis,facial pressure
+Sinusitis,nasal congestion
+Sinusitis,runny nose
+Sinusitis,thick nasal discharge
+Sinusitis,headache
+Sinusitis,sore throat
+Sinusitis,cough
+Sinusitis,reduced sense of smell
+
+Bronchitis,cough
+Bronchitis,persistent cough
+Bronchitis,mucus
+Bronchitis,phlegm
+Bronchitis,chest discomfort
+Bronchitis,fatigue
+Bronchitis,shortness of breath
+Bronchitis,wheezing
+Bronchitis,fever
+
+Pneumonia,cough
+Pneumonia,fever
+Pneumonia,chills
+Pneumonia,shortness of breath
+Pneumonia,chest pain
+Pneumonia,fatigue
+Pneumonia,phlegm
+Pneumonia,rapid breathing
+
+Chickenpox,fever
+Chickenpox,fatigue
+Chickenpox,headache
+Chickenpox,itchy rash
+Chickenpox,skin rash
+Chickenpox,blisters
+Chickenpox,loss of appetite
+
+Measles,fever
+Measles,cough
+Measles,runny nose
+Measles,red eyes
+Measles,skin rash
+Measles,sore throat
+Measles,fatigue
+
+Dengue,fever
+Dengue,high fever
+Dengue,severe headache
+Dengue,body pain
+Dengue,muscle pain
+Dengue,joint pain
+Dengue,nausea
+Dengue,vomiting
+Dengue,skin rash
+Dengue,pain behind eyes
+Dengue,fatigue
+
+Malaria,fever
+Malaria,chills
+Malaria,sweating
+Malaria,headache
+Malaria,muscle pain
+Malaria,fatigue
+Malaria,nausea
+Malaria,vomiting
+
+Hypothyroidism,fatigue
+Hypothyroidism,weight gain
+Hypothyroidism,cold intolerance
+Hypothyroidism,dry skin
+Hypothyroidism,constipation
+Hypothyroidism,hair loss
+Hypothyroidism,muscle weakness
+Hypothyroidism,depression
+Hypothyroidism,slow heartbeat
+
+Hyperthyroidism,weight loss
+Hyperthyroidism,rapid heartbeat
+Hyperthyroidism,palpitations
+Hyperthyroidism,sweating
+Hyperthyroidism,heat intolerance
+Hyperthyroidism,anxiety
+Hyperthyroidism,tremor
+Hyperthyroidism,insomnia
+Hyperthyroidism,muscle weakness
+
+Type 2 Diabetes,increased thirst
+Type 2 Diabetes,frequent urination
+Type 2 Diabetes,increased hunger
+Type 2 Diabetes,fatigue
+Type 2 Diabetes,blurred vision
+Type 2 Diabetes,slow wound healing
+Type 2 Diabetes,unexplained weight loss
+
+Hypoglycemia,hunger
+Hypoglycemia,sweating
+Hypoglycemia,shaking
+Hypoglycemia,dizziness
+Hypoglycemia,confusion
+Hypoglycemia,weakness
+Hypoglycemia,rapid heartbeat
+Hypoglycemia,blurred vision
+
+Hypertension,headache
+Hypertension,dizziness
+Hypertension,blurred vision
+Hypertension,shortness of breath
+Hypertension,chest discomfort
+Hypertension,nosebleed
+
+Kidney Stones,severe side pain
+Kidney Stones,flank pain
+Kidney Stones,back pain
+Kidney Stones,painful urination
+Kidney Stones,blood in urine
+Kidney Stones,nausea
+Kidney Stones,vomiting
+Kidney Stones,groin pain
+
+Gallstones,upper abdominal pain
+Gallstones,right upper abdominal pain
+Gallstones,back pain
+Gallstones,shoulder pain
+Gallstones,nausea
+Gallstones,vomiting
+Gallstones,indigestion
+
+Irritable Bowel Syndrome,abdominal pain
+Irritable Bowel Syndrome,bloating
+Irritable Bowel Syndrome,diarrhea
+Irritable Bowel Syndrome,constipation
+Irritable Bowel Syndrome,gas
+Irritable Bowel Syndrome,cramps
+
+Peptic Ulcer Disease,stomach pain
+Peptic Ulcer Disease,burning stomach pain
+Peptic Ulcer Disease,nausea
+Peptic Ulcer Disease,bloating
+Peptic Ulcer Disease,indigestion
+Peptic Ulcer Disease,loss of appetite
+
+Dermatitis,itchy skin
+Dermatitis,skin rash
+Dermatitis,red skin
+Dermatitis,dry skin
+Dermatitis,skin irritation
+Dermatitis,swelling
+
+Eczema,itchy skin
+Eczema,dry skin
+Eczema,red rash
+Eczema,scaly skin
+Eczema,skin inflammation
+Eczema,cracked skin
+
+Conjunctivitis,red eyes
+Conjunctivitis,itchy eyes
+Conjunctivitis,watery eyes
+Conjunctivitis,eye discharge
+Conjunctivitis,eye irritation
+Conjunctivitis,swollen eyes
+
+Otitis Media,ear pain
+Otitis Media,earache
+Otitis Media,hearing difficulty
+Otitis Media,fever
+Otitis Media,ear pressure
+Otitis Media,irritability
+
+Vertigo,spinning sensation
+Vertigo,dizziness
+Vertigo,balance problems
+Vertigo,nausea
+Vertigo,vomiting
+Vertigo,unsteady walking
+
+Panic Attack,sudden fear
+Panic Attack,rapid heartbeat
+Panic Attack,palpitations
+Panic Attack,shortness of breath
+Panic Attack,chest tightness
+Panic Attack,sweating
+Panic Attack,trembling
+Panic Attack,dizziness
+Panic Attack,numbness

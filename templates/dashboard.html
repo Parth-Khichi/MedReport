@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="hero">
+
+    <h1>Hello, {{ user_name }} 👋</h1>
+
+    <p>
+        Welcome to your medical report analysis dashboard.
+    </p>
+
+</div>
+
+
+<div class="cards">
+
+    <a
+        class="feature-card"
+        href="{{ url_for('report_analyze') }}"
+    >
+
+        <span>📄</span>
+
+        <h2>Report Analyse</h2>
+
+        <p>
+            Enter your medical report information
+            and review basic findings.
+        </p>
+
+    </a>
+
+
+    <a
+        class="feature-card"
+        href="{{ url_for('diagnose') }}"
+    >
+
+        <span>🩺</span>
+
+        <h2>Symptom Matching</h2>
+
+        <p>
+            Select symptoms to see possible
+            matching conditions.
+        </p>
+
+    </a>
+
+
+    <a
+        class="feature-card"
+        href="{{ url_for('my_reports') }}"
+    >
+
+        <span>📋</span>
+
+        <h2>My Reports</h2>
+
+        <p>
+            View your previous report analyses
+            and symptom checks.
+        </p>
+
+    </a>
+
+</div>
+
+
+<div class="warning">
+
+    <strong>Important:</strong>
+
+    This application provides educational
+    decision-support information only.
+    It is not a substitute for professional
+    medical diagnosis or treatment.
+
+</div>
+
+{% endblock %}
